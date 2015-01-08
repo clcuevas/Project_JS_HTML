@@ -33,10 +33,14 @@ tops.push(new Store ("Capitol Hill",     0.45, 2,   4, 45));
 tops.push(new Store ("South Lake Union", 0.05, 6,   180, 250));
 tops.push(new Store("WedgeWood",         0.2,  1.5, 20, 60));
 tops.push(new Store ("Ballard",          0.33, 1,   25, 175));
+tops.
 
-//  tops.push(new Store)("user input", )
 for(i in tops) {
   tops[i].randomDay();
 }
+// Using the average of the data from the stores above, we created a model to take user input to estimate a possible locations sales
+// 
+
+var scoutLocation = new Store(document.getElementById('location'), .226, 2.9, document.getElementById('min-traffic'), document.getElementById('max-traffic') );
 
   </script>
