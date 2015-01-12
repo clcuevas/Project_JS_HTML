@@ -38,7 +38,7 @@ function Locations(name, minTraffic, maxTraffic) {
     var daily = this.dailyDonuts();
     var weekly = this.weeklyTotal();
     var monthly = this.monthlyTotal();
-    var communication = (this.name + ' is estimated to sell ' + Math.floor(this.orderPerHour) + ' donuts per hour, ' + Math.floor(daily) + ' donuts per day, ' + Math.floor(weekly) + ' donuts per week, and ' + Math.floor(monthly) + ' donuts per month.');
+    var communication = (this.name + ' is estimated to sell ' + Math.round(this.orderPerHour) + ' donuts per hour, ' + Math.round(daily) + ' donuts per day, ' + Math.round(weekly) + ' donuts per week, and ' + Math.round(monthly) + ' donuts per month.');
     return communication;
 	};
 }
