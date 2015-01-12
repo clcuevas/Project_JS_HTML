@@ -5,19 +5,21 @@ function Locations(name, minTraffic, maxTraffic) {
 	//percentage of traffic entering a Top Pot location
 	this.entering = 0.226;
 	this.orderPerEntrant = 2.9;
-	this.orderPerHour = 0;
+	this.orderPerMonth = 0;
   this.dailyDonutsNeeded = 0;
   this.weeklyDonutsNeeded = 0;
   this.monthlyDonutsNeeded = 0;
 
-	//this function calculates the donuts needed by the hour depending on the traffic
+	//this function calculates the donuts needed each hour randomly over a month
 	this.donutsSold = function() {
-		this.orderPerHour += ((((Math.random() * (this.maxTraffic - this.minTraffic)) + this.minTraffic) * this.entering * this.orderPerEntrant));
+		//the for loop is used to run the function 308 times in order to increase accuracy of our final numbers
+		for (i=0; i < 308; i++) {
+		this.orderPerMonth += ((((Math.random() * (this.maxTraffic - this.minTraffic)) + this.minTraffic) * this.entering * this.orderPerEntrant));
+		}
 	};
-
 	//this function calculates an estimate of daily donuts needed for purchase
   this.dailyDonuts = function() {
-    this.dailyDonutsNeeded += this.orderPerHour * 11;
+    this.dailyDonutsNeeded += this.orderPerMonth / 28;
     return this.dailyDonutsNeeded;
   };
 
@@ -38,7 +40,7 @@ function Locations(name, minTraffic, maxTraffic) {
     var daily = this.dailyDonuts();
     var weekly = this.weeklyTotal();
     var monthly = this.monthlyTotal();
-    var communication = (this.name + ' is estimated to sell ' + Math.round(this.orderPerHour) + ' donuts per hour, ' + Math.round(daily) + ' donuts per day, ' + Math.round(weekly) + ' donuts per week, and ' + Math.round(monthly) + ' donuts per month.');
+    var communication = (this.name + ' is estimated to sell ' + Math.round(this.orderPerMonth) + ' donuts per month, ' + Math.round(weekly) + ' donuts per week, and ' + Math.round(daily) + ' donuts per day. ');
     return communication;
 	};
 }
