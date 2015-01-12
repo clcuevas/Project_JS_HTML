@@ -45,6 +45,8 @@ function Locations(name, minTraffic, maxTraffic) {
 
 var button = document.getElementById('submit');
 var summary = document.getElementById('summary');
+//NEW--added clear button after class discussion
+var clear = document.getElementById('clear');
 
 /* This function was created to access elements in our HTML file that contains
 the user's inputs: location name, minimum traffic, and maximum traffic. Once 
@@ -65,6 +67,11 @@ function userSubmit() {
 /* mouse event that 'listens' for a click behavior which triggers userSubmit
 function. the element used is the button variable with an id=submit*/
 button.addEventListener('click', userSubmit, false);
+//NEW--added event listener for clear button
+clear.addEventListener('click', function() {
+  history.go(0);
+}, false);
+
 
 
 
