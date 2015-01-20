@@ -4,3 +4,5 @@ We have agreed to prompt the end user for 3 pieces of information: Location Name
 
 The projections will be stored at the bottom of the window using a h2 and paragraph tag.<br />
 
+![Here's an example run](Screen_shot.png)
+
