@@ -45,32 +45,30 @@ function Locations(name, minTraffic, maxTraffic) {
   };
 }
 
-var button = document.getElementById('submit');
-var summary = document.getElementById('summary');
-//NEW--added clear button after class discussion
-var clear = document.getElementById('clear');
+var $button = $('#submit');
+var $summary = $('#summary');
 
 /* This function was created to access elements in our HTML file that contains
 the user's inputs: location name, minimum traffic, and maximum traffic. Once 
 the elements are accessed they will then be used to create a new store (
   constructor element) and the calculations that are triggered will send it
 as an output (innerHTML) for the user to view. */
+
 function userSubmit() {
-  var location = document.getElementById('location').value;
-  var min = document.getElementById('min-traffic').value;
-  var max = document.getElementById('max-traffic').value;
-  var userStoreSubmit = new Locations(location, min, max);
+  var userStoreSubmit = new Locations($('#location').val(), $('#min-traffic').val(), $('#max-traffic').val());
   userStoreSubmit.donutsSold();
-  var msg = '<h2>Projections Are: </h2>';
-  msg += userStoreSubmit.report();
-  summary.innerHTML = msg; //write output to HTML page
+  $summary.html("<h2>Projections are: </h2>" + "<p>" + userStoreSubmit.report() + "</p>"); //write output to HTML page
 }
 
-/* mouse event that 'listens' for a click behavior which triggers userSubmit
-function. the element used is the button variable with an id=submit*/
-button.addEventListener('click', userSubmit, false);
-//NEW--added event listener for clear button
-clear.addEventListener('click', function() {
-  history.go(0);
-}, false);
+/* mouse event that 'listens' for a click behavior which triggers userSubmit function.*/
+  $('#submit').on('click', function() {
+    userSubmit();
+  });
+
+//clear button
+$('#clear').click(function() {
+  $('#explode').toggle('explode');
+  setTimeout(function(){location.reload()},3000);
+});
+
 
