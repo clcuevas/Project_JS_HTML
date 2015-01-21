@@ -44,11 +44,7 @@ function Locations(name, minTraffic, maxTraffic) {
 }
 
 $(document).ready(function() {
-/* This function was created to access elements in our HTML file that contains
-the user's inputs: location name, minimum traffic, and maximum traffic. Once 
-the elements are accessed they will then be used to create a new store (
-	constructor element) and the calculations that are triggered will send it
-as an output (innerHTML) for the user to view. */
+
 function userSubmit() {
   var location = $('#location').val();
   var min = $('#min-traffic').val();
@@ -61,9 +57,9 @@ function userSubmit() {
     return '<h2>Projections Are: </h2>' + userStoreSubmit.report();
   });
 }
-/* mouse event that 'listens' for a click behavior which triggers userSubmit
-function. the element used is the button variable with an id=submit*/
+
 $('#submit').on('click', function() {
+	$(this).css({'background': 'red'});
   userSubmit();
 });
 $('#clear').on('click', function() {
